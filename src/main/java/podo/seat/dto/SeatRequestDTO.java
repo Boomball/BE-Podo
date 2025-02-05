@@ -1,6 +1,6 @@
-package be.podo.domain.seat.dto;
+package podo.seat.dto;
 
-import be.podo.domain.seat.constace.SeatStatus;
+import podo.seat.constace.SeatStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,9 +10,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
-public class SeatResponseDTO {
+@NoArgsConstructor
+public class SeatRequestDTO {
 
     private Long id;
     private Character row;

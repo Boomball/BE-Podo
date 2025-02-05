@@ -1,6 +1,6 @@
-package be.podo.domain.seat.dao;
+package podo.seat.dao;
 
-import be.podo.domain.seat.entity.Seat;
+import podo.seat.entity.Seat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

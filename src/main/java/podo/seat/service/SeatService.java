@@ -1,8 +1,8 @@
-package be.podo.domain.seat.service;
+package podo.seat.service;
 
-import be.podo.domain.seat.constace.SeatStatus;
-import be.podo.domain.seat.dao.SeatDAO;
-import be.podo.domain.seat.entity.Seat;
+import podo.seat.constace.SeatStatus;
+import podo.seat.dao.SeatDAO;
+import podo.seat.entity.Seat;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

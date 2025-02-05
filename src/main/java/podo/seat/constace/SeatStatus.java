@@ -1,4 +1,4 @@
-package be.podo.domain.seat.constace;
+package podo.seat.constace;
 
 public enum SeatStatus {
     AVAILABLE,

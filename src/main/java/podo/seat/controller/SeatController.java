@@ -1,9 +1,9 @@
-package be.podo.domain.seat.controller;
+package podo.seat.controller;
 
-import be.podo.domain.seat.dto.SeatRequestDTO;
-import be.podo.domain.seat.dto.SeatResponseDTO;
-import be.podo.domain.seat.entity.Seat;
-import be.podo.domain.seat.service.SeatService;
+import podo.seat.dto.SeatRequestDTO;
+import podo.seat.dto.SeatResponseDTO;
+import podo.seat.entity.Seat;
+import podo.seat.service.SeatService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

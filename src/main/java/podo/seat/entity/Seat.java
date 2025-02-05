@@ -1,6 +1,6 @@
-package be.podo.domain.seat.entity;
+package podo.seat.entity;
 
-import be.podo.domain.seat.constace.SeatStatus;
+import podo.seat.constace.SeatStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
