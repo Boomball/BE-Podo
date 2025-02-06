@@ -1,12 +1,12 @@
 package podo.seat.service;
 
-import podo.seat.constace.SeatStatus;
-import podo.seat.dao.SeatDAO;
-import podo.seat.entity.Seat;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import podo.seat.constace.SeatStatus;
+import podo.seat.dao.SeatDAO;
+import podo.seat.entity.Seat;
 
 @Service
 public class SeatService {
@@ -30,7 +30,7 @@ public class SeatService {
         if (seatOptional.isPresent()) {
             Seat seat = seatOptional.get();
             if (seat.getStatus() == SeatStatus.AVAILABLE) {
-                seat.setStatus(SeatStatus.RESERVED);
+                seat.changeStatus();
                 seatDAO.save(seat);
                 return Optional.of(seat);
             }
