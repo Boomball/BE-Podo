@@ -31,12 +31,11 @@ public class Seat {
     @Enumerated(EnumType.STRING)
     private SeatStatus status;
 
-    public void changeStatus() {
-        if (this.status == SeatStatus.AVAILABLE) {
-            this.status = SeatStatus.RESERVED;
-        } else if (this.status == SeatStatus.RESERVED) {
-            this.status = SeatStatus.AVAILABLE;
+    public void reserve() {
+        if (this.status == SeatStatus.RESERVED) {
+            throw new IllegalStateException("[ERROR] 이미 예약된 좌석입니다.");
         }
+        this.status = SeatStatus.RESERVED;
     }
 
 }
