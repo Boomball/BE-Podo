@@ -38,12 +38,4 @@ public class Seat {
         this.status = SeatStatus.RESERVED;
     }
 
-    public void changeStatus() {
-        if (this.status == SeatStatus.AVAILABLE) {
-            this.status = SeatStatus.RESERVED;
-        } else if (this.status == SeatStatus.RESERVED) {
-            this.status = SeatStatus.AVAILABLE;
-        }
-    }
-
 }
