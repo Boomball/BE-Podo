@@ -25,6 +25,9 @@ public class User {
     @Id
     private String name;
 
+    // 편의를 위해 해쉬값은 사용하지 않겠음
+    private String password;
+
     @ManyToMany
     @JoinTable(
             name = "user_seat",

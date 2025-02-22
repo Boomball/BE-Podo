@@ -1,6 +1,7 @@
 package podo.user.controller;
 
 import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import podo.seat.entity.Seat;
+import podo.user.dto.LoginRequest;
+import podo.user.dto.LoginResponse;
 import podo.user.service.UserService;
 
 @RestController
@@ -31,6 +34,17 @@ public class UserController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("사용자 등록에 실패했습니다: " + e.getMessage());
         }
+    }
+
+    // 로그인 및 회원가입
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
+        userService.create(loginRequest);
+        String userName = userService.login(loginRequest);
+        if (userName.isBlank()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new LoginResponse(""));
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(new LoginResponse(userName));
     }
 
     // 좌석 예약
