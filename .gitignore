@@ -8,10 +8,6 @@ build/
 
 ### 중요 파일 ###
 /src/main/resources/application.properties
-/src/main/resources/secret.properties
-/src/main/resources/static/
-
-### React Build ###
 /src/main/resources/static/
 
 ### STS ###
