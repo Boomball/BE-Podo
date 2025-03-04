@@ -1,5 +1,6 @@
 package podo.seat.service;
 
+import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class SeatService {
     }
 
     // 전체 좌석 조회
+    @Transactional
     public List<Seat> getAllSeats() {
         return seatDAO.findAll();
     }
