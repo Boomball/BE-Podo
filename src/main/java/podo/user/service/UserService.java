@@ -1,5 +1,6 @@
 package podo.user.service;
 
+import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,8 @@ public class UserService {
         this.seatDAO = seatDAO;
     }
 
-    // 사용자 등록
-    // TODO: password 항목이 추가되어 해당 메서드가 원활히 동작하지 않을 수 있습니다.
+    // 사용자 등록 (로그인 기능 개발 완료로 인해 추후 삭제 예정)
+    @Transactional
     public void createUser(String userName) {
         if (!userDAO.existsById(userName)) {
             User user = new User(userName, "", new ArrayList<>());
@@ -30,6 +31,7 @@ public class UserService {
     }
 
     // 회원가입
+    @Transactional
     public void create(LoginRequest loginRequest) {
         String name = loginRequest.getName();
         String password = loginRequest.getPassword();
@@ -40,6 +42,7 @@ public class UserService {
         }
     }
 
+    @Transactional
     public String login(LoginRequest loginRequest) {
         String name = loginRequest.getName();
 
@@ -52,6 +55,7 @@ public class UserService {
     }
 
     // 좌석 예약
+    @Transactional
     public void reserveSeat(String userName, Long seatId) {
         User user = userDAO.findById(userName)
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] 사용자를 찾을 수 없습니다."));
@@ -66,6 +70,7 @@ public class UserService {
     }
 
     // 선택한 좌석 표시
+    @Transactional
     public List<Seat> getReservedSeats(String userName) {
         User user = userDAO.findById(userName)
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] 사용자를 찾을 수 없습니다."));
