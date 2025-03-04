@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_name"),
             inverseJoinColumns = @JoinColumn(name = "seat_id")
     )
+    @OrderBy("seatRow ASC, seatColumn ASC")
     private List<Seat> seats = new ArrayList<>();
 
     public void addSeat(Seat seat) {
