@@ -21,15 +21,6 @@ public class UserService {
         this.seatDAO = seatDAO;
     }
 
-    // 사용자 등록 (로그인 기능 개발 완료로 인해 추후 삭제 예정)
-    @Transactional
-    public void createUser(String userName) {
-        if (!userDAO.existsById(userName)) {
-            User user = new User(userName, "", new ArrayList<>());
-            userDAO.save(user);
-        }
-    }
-
     // 회원가입
     @Transactional
     public void create(LoginRequest loginRequest) {

@@ -25,17 +25,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    // 사용자 등록
-    @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody String userName) {
-        try {
-            userService.createUser(userName);
-            return ResponseEntity.ok("사용자가 등록되었습니다.");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("사용자 등록에 실패했습니다: " + e.getMessage());
-        }
-    }
-
     // 로그인 및 회원가입
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
