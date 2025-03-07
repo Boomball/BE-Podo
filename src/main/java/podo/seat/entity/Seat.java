@@ -5,11 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import podo.seat.constace.SeatStatus;
+import podo.user.entity.User;
 
 @Entity
 @Getter
@@ -30,6 +33,9 @@ public class Seat {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private SeatStatus status;
+
+    @JoinColumn(name = "user_name")
+    private String owner;
 
     public void reserve() {
         if (this.status == SeatStatus.RESERVED) {

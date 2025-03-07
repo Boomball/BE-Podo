@@ -21,7 +21,9 @@ public class SeatConfig {
                         (long) i,
                         (char) ('A' + (i - 1) / 10),
                         i % 10 == 0 ? 10 : i % 10,
-                        SeatStatus.AVAILABLE);
+                        SeatStatus.AVAILABLE,
+                        null
+                );
                 seatDAO.save(seat);
             }
         };

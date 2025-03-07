@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
@@ -29,16 +30,12 @@ public class User {
     // 편의를 위해 해쉬값은 사용하지 않겠음
     private String password;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_seat",
-            joinColumns = @JoinColumn(name = "user_name"),
-            inverseJoinColumns = @JoinColumn(name = "seat_id")
-    )
+    @OneToMany(mappedBy = "owner")
     @OrderBy("seatRow ASC, seatColumn ASC")
     private List<Seat> seats = new ArrayList<>();
 
     public void addSeat(Seat seat) {
+        seat.setOwner(this.name);
         this.seats.add(seat);
     }
 
